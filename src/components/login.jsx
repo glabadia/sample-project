@@ -7,8 +7,13 @@ const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
     // Call back-end services
+    alert(`Hello, ${username}, with password ${password}`);
 
-    console.log("Submitted at: ", Date.now());
+    console.log("Submitted at: ", new Date().toLocaleTimeString());
+  };
+
+  const handleChange = event => {
+    setUsername(event.target.value);
   };
   return (
     <main className="container">
@@ -19,19 +24,21 @@ const Login = () => {
           <input
             id="username"
             type="text"
-            value={username}
+            defaultValue={username}
             placeholder="username"
             className="form-control"
+            onChange={e => setUsername(e.target.value)}
           />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
             id="password"
-            type="text"
+            type="password"
             value={password}
             placeholder="password"
             className="form-control"
+            onChange={e => setPassword(e.target.value)}
           />
         </div>
         <div>
